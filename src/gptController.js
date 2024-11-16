@@ -1,6 +1,8 @@
-import OpenAI from "openai";
+const OpenAI = require("openai");
+const fs = require("fs");
+const imageToBase64 = require("image-to-base64");
 
-const openai = new OpenAI();
+const openai = new OpenAI({ apiKey: process.env.OPENAI_KEY });
 
 const test_img = "../car parking 2.jpg";
 
@@ -15,7 +17,7 @@ const countCars = async () => {
           {
             type: "image_url",
             image_url: {
-              url: test_img,
+              url: await imageToBase64(test_img),
             },
           },
         ],
