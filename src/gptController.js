@@ -1,8 +1,28 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const openai_1 = __importDefault(require("openai"));
-const openai = new openai_1.default();
+import OpenAI from "openai";
+
+const openai = new OpenAI();
+
 const test_img = "../car parking 2.jpg";
+
+const countCars = async () => {
+  const response = await openai.chat.completions.create({
+    model: "gpt-4o-mini",
+    messages: [
+      {
+        role: "user",
+        content: [
+          { type: "text", text: "How many cars are in this image?" },
+          {
+            type: "image_url",
+            image_url: {
+              url: test_img,
+            },
+          },
+        ],
+      },
+    ],
+  });
+  console.log(response.choices[0]);
+};
+
+module.exports = { countCars };
