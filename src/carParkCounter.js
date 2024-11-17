@@ -31,9 +31,15 @@ const countCars = async (req, res) => {
         },
       ],
     });
+    fs.unlink(imagePath, (err) => {
+      if (err) {
+        console.error(`Failed to delete file at ${imagePath}:`, err);
+      } else {
+      }
+    });
 
     console.log("Response from OpenAI:", response.choices[0]);
-    return res.status(200).json({ reply: response });
+    return res.status(200).json({ reply: response.choices[0].message.content });
   } catch (error) {
     console.error("Error processing image:", error.message);
   }
