@@ -3,7 +3,7 @@ const fs = require("fs");
 const path = require("path");
 const openai = new OpenAI({ apiKey: process.env.OPENAI_KEY });
 
-const img = "/Users/kentaro/VSC/v2parkingfinder/src/car parking 2.jpg";
+const img = "/car parking 2.jpg";
 
 const imageToBase64 = (imgPath) => {
   return fs.readFileSync(imgPath, { encoding: "base64" });

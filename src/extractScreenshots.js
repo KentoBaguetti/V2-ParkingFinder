@@ -36,7 +36,7 @@ function extractScreenshots(videoPath, outputDir, interval) {
       .screenshots({
         timestamps: timemarks,
         folder: outputDir,
-        filename: 'screenshot-at-%s-seconds.png', // Custom naming format
+        filename: '%s.png', // Custom naming format
       });
   });
 }
