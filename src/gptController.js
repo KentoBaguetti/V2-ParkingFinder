@@ -1,30 +1,42 @@
 const OpenAI = require("openai");
 const fs = require("fs");
-const imageToBase64 = require("image-to-base64");
-
+const path = require("path");
 const openai = new OpenAI({ apiKey: process.env.OPENAI_KEY });
 
-const test_img = "../car parking 2.jpg";
+const img = "/Users/kentaro/VSC/v2parkingfinder/src/car parking 2.jpg";
 
-const countCars = async () => {
-  const response = await openai.chat.completions.create({
-    model: "gpt-4o-mini",
-    messages: [
-      {
-        role: "user",
-        content: [
-          { type: "text", text: "How many cars are in this image?" },
-          {
-            type: "image_url",
-            image_url: {
-              url: await imageToBase64(test_img),
+const imageToBase64 = (imgPath) => {
+  return fs.readFileSync(imgPath, { encoding: "base64" });
+};
+
+const countCars = async (req, res) => {
+  try {
+    const response = await openai.chat.completions.create({
+      model: "gpt-4o-mini",
+      messages: [
+        {
+          role: "user",
+          content: [
+            {
+              type: "text",
+              text: "Analyze this image and tell me how many cars you see. Return an integer value only",
             },
-          },
-        ],
-      },
-    ],
-  });
-  console.log(response.choices[0]);
+            {
+              type: "image_url",
+              image_url: {
+                url: `data:image/jpeg;base64, ${imageToBase64(img)}`,
+              },
+            },
+          ],
+        },
+      ],
+    });
+
+    console.log("Response from OpenAI:", response.choices[0]);
+    return res.status(200);
+  } catch (error) {
+    console.error("Error processing image:", error.message);
+  }
 };
 
 module.exports = { countCars };
