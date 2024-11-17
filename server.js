@@ -9,12 +9,12 @@ const PORT = 3000;
 
 const upload = multer({ dest: "uploads/" });
 
-const { countCarsInImage } = require("./src/carParkCounter.js");
+const { countCars } = require("./src/carParkCounter.js");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.post("/sendImage", upload.single("image"), countCarsInImage);
+app.post("/sendImage", upload.single("image"), countCars);
 
 app.listen(PORT, () => {
   console.log(`server running on port: ${PORT}`);

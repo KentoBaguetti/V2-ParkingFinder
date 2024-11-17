@@ -3,14 +3,14 @@ const fs = require("fs");
 const path = require("path");
 const openai = new OpenAI({ apiKey: process.env.OPENAI_KEY });
 
-const img = "/car parking 2.jpg";
-
 const imageToBase64 = (imgPath) => {
   return fs.readFileSync(imgPath, { encoding: "base64" });
 };
 
 const countCars = async (req, res) => {
   try {
+    const imagePath = req.file.path;
+    const base64ImgUrl = imageToBase64(imagePath);
     const response = await openai.chat.completions.create({
       model: "gpt-4o-mini",
       messages: [
@@ -24,7 +24,7 @@ const countCars = async (req, res) => {
             {
               type: "image_url",
               image_url: {
-                url: `data:image/jpeg;base64, ${imageToBase64(img)}`,
+                url: `data:image/jpeg;base64, ${base64ImgUrl}`,
               },
             },
           ],
@@ -33,7 +33,7 @@ const countCars = async (req, res) => {
     });
 
     console.log("Response from OpenAI:", response.choices[0]);
-    return res.status(200);
+    return res.status(200).json({ reply: response });
   } catch (error) {
     console.error("Error processing image:", error.message);
   }
