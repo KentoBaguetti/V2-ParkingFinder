@@ -12,14 +12,14 @@ const countCars = async (req, res) => {
     const imagePath = req.file.path;
     const base64ImgUrl = imageToBase64(imagePath);
     const response = await openai.chat.completions.create({
-      model: "gpt-4o-mini",
+      model: "gpt-4o-latest",
       messages: [
         {
           role: "user",
           content: [
             {
               type: "text",
-              text: "Analyze this image and tell me how many cars you see. Return an integer value only",
+              text: "Analyze this image and tell me how many parked cars there are. Return an integer value only.",
             },
             {
               type: "image_url",

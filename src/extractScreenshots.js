@@ -36,7 +36,7 @@ function extractScreenshots(videoPath, outputDir, interval) {
       .screenshots({
         timestamps: timemarks,
         folder: outputDir,
-        filename: '%s.png', // Custom naming format
+        filename: '%s.jpg', // Custom naming format
       });
   });
 }
@@ -50,9 +50,8 @@ function generateTimemarks(duration, interval) {
   return timemarks;
 }
 
-// Example usage
 const videoPath = 'video.mp4'; // Replace with your video path
 const outputDir = path.join('./screenshots'); // Replace with your output directory
-const interval = 30; // Interval in seconds
+const interval = 10; // Interval in seconds
 
 extractScreenshots(videoPath, outputDir, interval);

@@ -31,7 +31,7 @@ const countCarsInImage = async (imagePath) => {
           content: [
             {
               type: "text",
-              text: "Analyze this image and tell me how many cars you see. Return an integer value only",
+              text: "Analyze this image and tell me how many parked cars there are. There's one row of parking space. There's total of 8 parking space. If there's x empty space, the number of cars parked is 8 - x. There's either one or two empty spaces. Return your answer as \'There are _ cars\'. Hide your calculations.",
             },
             {
               type: "image_url",
@@ -48,11 +48,11 @@ const countCarsInImage = async (imagePath) => {
       if (err) {
         console.error(`Failed to delete file at ${imagePath}:`, err);
       } else {
-        console.log(`Deleted image file: ${imagePath}`);
+        //console.log(`Deleted image file: ${imagePath}`);
       }
     });
 
-    console.log("Response from OpenAI:", response.choices[0]);
+    //console.log("Response from OpenAI:", response.choices[0]);
     return response.choices[0].message.content;
   } catch (error) {
     console.error("Error processing image:", error.message);
@@ -85,8 +85,8 @@ function extractScreenshots(videoPath, outputDir, interval) {
     const duration = metadata.format.duration;
     const timemarks = generateTimemarks(duration, interval);
 
-    console.log(`Video duration: ${duration} seconds`);
-    console.log(`Timemarks: ${timemarks.join(", ")}`);
+    //console.log(`Video duration: ${duration} seconds`);
+    //console.log(`Timemarks: ${timemarks.join(", ")}`);
 
     const generatedFilenames = [];
 
@@ -95,7 +95,7 @@ function extractScreenshots(videoPath, outputDir, interval) {
         console.log(`Spawned FFmpeg with command: ${commandLine}`);
       })
       .on("filenames", (filenames) => {
-        console.log("Will generate screenshots:", filenames);
+        //console.log("Will generate screenshots:", filenames);
         generatedFilenames.push(
           ...filenames.map((filename) => path.join(outputDir, filename))
         );
@@ -104,10 +104,11 @@ function extractScreenshots(videoPath, outputDir, interval) {
         console.error(`Error processing video: ${err.message}`);
       })
       .on("end", async () => {
-        console.log("Screenshots have been extracted successfully!");
+        //console.log("Screenshots have been extracted successfully!");
         for (const imagePath of generatedFilenames) {
           const carCount = await countCarsInImage(imagePath);
-          console.log(`Image ${imagePath} has ${carCount} cars`);
+          //console.log(`Image ${imagePath} has ${carCount} cars`);
+          console.log(carCount);
         }
       })
       .screenshots({
