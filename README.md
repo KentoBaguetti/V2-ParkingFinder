@@ -1,10 +1,10 @@
-# The Future of Parking
+# The Future of Parking - Future Park
 
-This repository contains the project **"The Future of Parking"**, aimed at addressing the inefficiencies of parking in congested urban areas like Vancouver. Our solution offers a centralized, real-time parking app that integrates government-supported infrastructure and Google Maps to improve accessibility, reduce congestion, and support sustainable practices.
+Our project **"Future Park"** is aimed at addressing the inefficiencies of parking in congested urban areas like Vancouver. Our solution offers a centralized, real-time parking app that integrates government-supported infrastructure and Google Maps to improve accessibility, reduce congestion, and support sustainable practices.
 
 ---
 
-## Problem Statement
+## Problem
 
 Efficient parking is crucial to mitigate the underlying social, economic, and environmental challenges in cities like Vancouver. Current parking inefficiencies contribute to:
 
