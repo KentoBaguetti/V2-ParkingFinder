@@ -76,9 +76,6 @@ By using this app, we aim to:
 ### Future Park
 Made at V2 Side Quest November 2024
 
-### What this project does
-This project allows users to easily find open parking spots in downtown Vancouver in real time
-
 ### Team Members
 - Ella
 - Lyle
