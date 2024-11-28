@@ -1,6 +1,4 @@
 # V2-ParkingFinder
-V2 Side Quest Parking Finder for Vancouver
-
 ![Intro Slide](/assets/6.png)
 ![Slide 2](/assets/7.png)
 ![Slide 3](/assets/8.png)
@@ -13,6 +11,18 @@ V2 Side Quest Parking Finder for Vancouver
 ![Slide 10](/assets/19.png)
 ![Slide 11](/assets/20.png)
 ![Slide 12](/assets/21.png)
-[Video 1](/assets/video1.mp4)
-[Video 2](/assets/video2.mp4)
 ![Slide 13](/assets/24.png)
+
+### Future Park
+Made at V2 Side Quest November 2024
+
+### What this project does
+This project allows users to easily find open parking spots in downtown Vancouver in real time
+
+### Team Members
+- Ella
+- Lyle
+- Fraser
+- Shin
+- Adeeb
+- Kentaro
