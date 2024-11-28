@@ -31,7 +31,7 @@ const countCarsInImage = async (imagePath) => {
           content: [
             {
               type: "text",
-              text: "Analyze this image and tell me how many parked cars there are. There's one row of parking space. There's total of 8 parking space. If there's x empty space, the number of cars parked is 8 - x. There's either one or two empty spaces. Return your answer as \'There are _ cars\'. Hide your calculations.",
+              text: "Analyze this image and tell me how many parked cars there are. Return your answer as \'There are _ cars\'. Hide your calculations.",
             },
             {
               type: "image_url",
